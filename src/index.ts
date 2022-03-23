@@ -14,3 +14,34 @@ app.post('/', function (req: Request, res: Response) {
 })
 
 app.listen(3000)
+
+class Note
+{
+  id:number
+  title:string
+  content:string
+  createdate:Date
+  tags:Tag[]
+
+  constructor(id:number,title:string = "", content:string = "", createdate:Date=new Date, tags:Tag[]=[])
+  {
+  this.id = id;
+  this.title = title;
+  this.content = content;
+  this.createdate = createdate;
+  this.tags = tags;
+  }
+}
+
+class Tag
+{
+  id:number
+  name:string
+
+  constructor(id:number, name:string = "")
+
+  {
+  this.id = id;
+  this.name = name;
+  }
+}
