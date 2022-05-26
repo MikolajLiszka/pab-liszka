@@ -1,15 +1,20 @@
+import { randomUUID } from 'crypto';
+import Tag from './tags';
+
 export class Note {
-    public id: number;
+    public id: string;
     public title: string;
     public content: string;
-    public createDate: string;
-    public tags: string[];
+    public createDate: Date;
+    public tags: Tag[];
 
-    public constructor(id: number, title: string, content: string, createDate: string, tags: string[]) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.createDate = createDate;
-        this.tags = tags;
+    public constructor(note: Note) {
+        this.id = note.id || randomUUID();
+        this.title = note.title;
+        this.content = note.content;
+        this.createDate = note.createDate || new Date();
+        this.tags = note.tags || undefined;
     }
 }
+
+export default Note;
